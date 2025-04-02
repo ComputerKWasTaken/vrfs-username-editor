@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRFS Username Color Editor</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="creator-attribution">
+    Tool created by <span class="creator-name" style="font-family: Montserrat;">computerK</span> <span class="creator-icon">cK</span>
+  </div>
+  <div class="container">
+    <h1>VRFS Username Color Editor</h1>
+
+    <div class="input-section">
+      <label for="username">Enter Your Username:</label>
+      <input type="text" id="username" placeholder="Enter username (e.g., computerK)">
+    </div>
+
+    <div class="color-section">
+      <label>Choose Your Color:</label>
+
+      <!-- Custom Color Picker -->
+      <div class="custom-color-picker">
+        <!-- Preset Color Grid -->
+        <div class="color-grid">
+          <div class="color-grid-title">Preset Colors</div>
+          <div class="color-grid-container">
+            <!-- Row 1 - Reds & Oranges -->
+            <button class="color-swatch" data-color="#FF0000" style="background-color: #FF0000;"></button>
+            <button class="color-swatch" data-color="#FF4500" style="background-color: #FF4500;"></button>
+            <button class="color-swatch" data-color="#FF8C00" style="background-color: #FF8C00;"></button>
+            <button class="color-swatch" data-color="#FFA500" style="background-color: #FFA500;"></button>
+            <button class="color-swatch" data-color="#FFD700" style="background-color: #FFD700;"></button>
+
+            <!-- Row 2 - Yellows & Greens -->
+            <button class="color-swatch" data-color="#FFFF00" style="background-color: #FFFF00;"></button>
+            <button class="color-swatch" data-color="#9ACD32" style="background-color: #9ACD32;"></button>
+            <button class="color-swatch" data-color="#32CD32" style="background-color: #32CD32;"></button>
+            <button class="color-swatch" data-color="#008000" style="background-color: #008000;"></button>
+            <button class="color-swatch" data-color="#00FF00" style="background-color: #00FF00;"></button>
+
+            <!-- Row 3 - Cyans & Blues -->
+            <button class="color-swatch" data-color="#00FFFF" style="background-color: #00FFFF;"></button>
+            <button class="color-swatch" data-color="#1E90FF" style="background-color: #1E90FF;"></button>
+            <button class="color-swatch" data-color="#0000FF" style="background-color: #0000FF;"></button>
+            <button class="color-swatch" data-color="#000080" style="background-color: #000080;"></button>
+            <button class="color-swatch" data-color="#4B0082" style="background-color: #4B0082;"></button>
+
+            <!-- Row 4 - Purples & Pinks -->
+            <button class="color-swatch" data-color="#800080" style="background-color: #800080;"></button>
+            <button class="color-swatch" data-color="#FF00FF" style="background-color: #FF00FF;"></button>
+            <button class="color-swatch" data-color="#C71585" style="background-color: #C71585;"></button>
+            <button class="color-swatch" data-color="#FF1493" style="background-color: #FF1493;"></button>
+            <button class="color-swatch" data-color="#FF69B4" style="background-color: #FF69B4;"></button>
+
+            <!-- Row 5 - Grayscale -->
+            <button class="color-swatch" data-color="#FFFFFF" style="background-color: #FFFFFF;"></button>
+            <button class="color-swatch" data-color="#C0C0C0" style="background-color: #C0C0C0;"></button>
+            <button class="color-swatch" data-color="#808080" style="background-color: #808080;"></button>
+            <button class="color-swatch" data-color="#404040" style="background-color: #404040;"></button>
+            <button class="color-swatch" data-color="#000000" style="background-color: #000000;"></button>
+          </div>
+        </div>
+
+        <!-- RGB Sliders -->
+        <div class="color-sliders">
+          <div class="color-slider-title">Fine-tune Your Color</div>
+
+          <div class="slider-container">
+            <label for="red-slider">R</label>
+            <input type="range" id="red-slider" min="0" max="255" value="255" class="color-range red-range">
+            <span id="red-value">255</span>
+          </div>
+
+          <div class="slider-container">
+            <label for="green-slider">G</label>
+            <input type="range" id="green-slider" min="0" max="255" value="142" class="color-range green-range">
+            <span id="green-value">142</span>
+          </div>
+
+          <div class="slider-container">
+            <label for="blue-slider">B</label>
+            <input type="range" id="blue-slider" min="0" max="255" value="57" class="color-range blue-range">
+            <span id="blue-value">57</span>
+          </div>
+        </div>
+
+        <!-- Color Preview -->
+        <div class="color-preview-container">
+          <div class="color-preview-title">Selected Color</div>
+          <div id="color-preview" style="background-color: #FF8E39;"></div>
+        </div>
+      </div>
+
+      <div class="color-info">
+        <div class="hex-display">
+          <span>Hex: </span>
+          <span id="hex-value">#FF8E39</span>
+        </div>
+        <div class="vrfs-display">
+          <span>VRFS Code: </span>
+          <span id="vrfs-code">952</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylization-section">
+      <label>Text Stylization:</label>
+      <div class="stylization-options">
+        <div class="stylization-option">
+          <input type="checkbox" id="bold-option" class="style-checkbox">
+          <label for="bold-option">Bold <span class="tag-preview">&lt;b&gt;</span></label>
+        </div>
+        <div class="stylization-option">
+          <input type="checkbox" id="italic-option" class="style-checkbox">
+          <label for="italic-option">Italic <span class="tag-preview">&lt;i&gt;</span></label>
+        </div>
+        <div class="stylization-option">
+          <input type="checkbox" id="underline-option" class="style-checkbox">
+          <label for="underline-option">Underlined <span class="tag-preview">&lt;u&gt;</span></label>
+        </div>
+        <div class="stylization-option">
+          <input type="checkbox" id="small-option" class="style-checkbox">
+          <label for="small-option">Small <span class="tag-preview">&lt;sub&gt;</span></label>
+        </div>
+        <div class="stylization-option">
+          <input type="checkbox" id="highlight-option" class="style-checkbox">
+          <label for="highlight-option">Highlighted <span class="tag-preview">&lt;mark&gt;</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <h2>Preview</h2>
+      <div class="preview-box">
+        <span id="preview-text">computerK</span>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h2>Result</h2>
+      <div class="result-box">
+        <code id="result-code">&lt;#952&gt;computerK</code>
+      </div>
+      <button id="copy-button">Copy to Clipboard</button>
+    </div>
+
+    <div class="instructions">
+      <h3>How It Works</h3>
+      <p>This tool converts a standard hex color to the VRFS 3-digit color format.</p>
+      <ol>
+        <li>Enter your username</li>
+        <li>Select a color using the preset colors or RGB sliders</li>
+        <li>The tool automatically converts your color to the VRFS format</li>
+        <li>Copy the result and use it in VRFS!</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Thank you pop-up notification -->
+  <div id="thank-you-popup" class="popup-notification">
+    <div class="popup-content">
+      <p>Enjoy this tool? Show some thanks and send some credits to my ID: <span class="highlight-id">M-807-16</span></p>
+      <button id="close-popup" class="close-button">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
