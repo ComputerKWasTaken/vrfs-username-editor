@@ -46,14 +46,38 @@ format:
 ## 🧰 Technologies Used
 
 - HTML5
-- CSS3
-- JavaScript (Vanilla)
+- CSS3 with Custom Properties (variables)
+- Modular JavaScript (ES6 modules)
 - Google Fonts (Inter, Roboto Mono, Montserrat)
 
 ## 💻 Installation
 
 No installation required! This is a hosted web application on Netlify. If you're
 interested in making changes, please send some commits and pull requests over.
+
+## 🏗️ Project Structure
+
+The project follows a modular architecture:
+
+```
+├── css/
+│   └── styles.css         # CSS with custom properties for theming
+├── js/
+│   ├── colorUtils.js      # Color conversion utilities
+│   ├── state.js           # Application state management
+│   ├── uiController.js    # UI updates and DOM interactions
+│   ├── clipboard.js       # Clipboard functionality
+│   └── main.js            # Main entry point
+└── index.html            # Main HTML file
+```
+
+### Module Responsibilities
+
+- **colorUtils.js**: Handles all color conversions (hex to RGB, RGB to hex, hex to VRFS)
+- **state.js**: Manages the application state with a pub/sub pattern
+- **uiController.js**: Manages all DOM interactions and UI updates
+- **clipboard.js**: Provides clipboard functionality with fallbacks
+- **main.js**: Initializes the application and connects modules
 
 ## 👨‍💻 Created By
 
