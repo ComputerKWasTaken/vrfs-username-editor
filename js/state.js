@@ -5,12 +5,34 @@
 // Default values
 const initialState = {
   username: "computerK",
+  // Primary color (used for the entire username or first segment)
   color: {
     r: 255,
     g: 142,
     b: 57,
     hex: "#FF8E39"
   },
+  // Additional colors for multi-color feature
+  additionalColors: [
+    // Color 2 (empty by default)
+    {
+      r: 0,
+      g: 255, 
+      b: 0,
+      hex: "#00FF00",
+      enabled: false,
+      position: 0 // Position in the username where this color starts (0-based index)
+    },
+    // Color 3 (empty by default)
+    {
+      r: 0,
+      g: 0,
+      b: 255,
+      hex: "#0000FF",
+      enabled: false,
+      position: 0 // Position in the username where this color starts (0-based index)
+    }
+  ],
   stylization: {
     bold: false,
     italic: false,
@@ -38,6 +60,24 @@ export function updateState(newState) {
   }
   if (newState.stylization) {
     appState.stylization = { ...appState.stylization, ...newState.stylization };
+  }
+  
+  // Update additional colors if provided
+  if (newState.additionalColors) {
+    // If the entire array is provided, replace it
+    if (Array.isArray(newState.additionalColors)) {
+      appState.additionalColors = [...newState.additionalColors];
+    } 
+    // If individual color updates are provided
+    else if (typeof newState.additionalColors === 'object') {
+      const { index, ...updates } = newState.additionalColors;
+      if (index !== undefined && appState.additionalColors[index]) {
+        appState.additionalColors[index] = {
+          ...appState.additionalColors[index],
+          ...updates
+        };
+      }
+    }
   }
   
   // Update simple properties

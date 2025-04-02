@@ -22,48 +22,55 @@
     </div>
 
     <div class="color-section">
-      <label>Choose Your Color:</label>
+      <label>Choose Your Colors:</label>
 
-      <!-- Custom Color Picker -->
+      <!-- Multi-color control tabs -->
+      <div class="color-tabs">
+        <button class="color-tab active" data-color-index="0">Color 1 (Primary)</button>
+        <button class="color-tab" data-color-index="1">Color 2</button>
+        <button class="color-tab" data-color-index="2">Color 3</button>
+      </div>
+
+      <!-- Custom Color Picker -->      
       <div class="custom-color-picker">
         <!-- Preset Color Grid -->
         <div class="color-grid">
           <div class="color-grid-title">Preset Colors</div>
           <div class="color-grid-container">
             <!-- Row 1 - Reds & Oranges -->
-            <button class="color-swatch" data-color="#FF0000" style="background-color: #FF0000;"></button>
-            <button class="color-swatch" data-color="#FF4500" style="background-color: #FF4500;"></button>
-            <button class="color-swatch" data-color="#FF8C00" style="background-color: #FF8C00;"></button>
-            <button class="color-swatch" data-color="#FFA500" style="background-color: #FFA500;"></button>
-            <button class="color-swatch" data-color="#FFD700" style="background-color: #FFD700;"></button>
+            <button class="color-swatch" data-color="#FF0000" style="background-color: #FF0000;" aria-label="Preset color Red"></button>
+            <button class="color-swatch" data-color="#FF4500" style="background-color: #FF4500;" aria-label="Preset color Orange Red"></button>
+            <button class="color-swatch" data-color="#FF8C00" style="background-color: #FF8C00;" aria-label="Preset color Dark Orange"></button>
+            <button class="color-swatch" data-color="#FFA500" style="background-color: #FFA500;" aria-label="Preset color Orange"></button>
+            <button class="color-swatch" data-color="#FFD700" style="background-color: #FFD700;" aria-label="Preset color Gold"></button>
 
             <!-- Row 2 - Yellows & Greens -->
-            <button class="color-swatch" data-color="#FFFF00" style="background-color: #FFFF00;"></button>
-            <button class="color-swatch" data-color="#9ACD32" style="background-color: #9ACD32;"></button>
-            <button class="color-swatch" data-color="#32CD32" style="background-color: #32CD32;"></button>
-            <button class="color-swatch" data-color="#008000" style="background-color: #008000;"></button>
-            <button class="color-swatch" data-color="#00FF00" style="background-color: #00FF00;"></button>
+            <button class="color-swatch" data-color="#FFFF00" style="background-color: #FFFF00;" aria-label="Preset color Yellow"></button>
+            <button class="color-swatch" data-color="#9ACD32" style="background-color: #9ACD32;" aria-label="Preset color Yellow Green"></button>
+            <button class="color-swatch" data-color="#32CD32" style="background-color: #32CD32;" aria-label="Preset color Lime Green"></button>
+            <button class="color-swatch" data-color="#008000" style="background-color: #008000;" aria-label="Preset color Green"></button>
+            <button class="color-swatch" data-color="#00FF00" style="background-color: #00FF00;" aria-label="Preset color Lime"></button>
 
             <!-- Row 3 - Cyans & Blues -->
-            <button class="color-swatch" data-color="#00FFFF" style="background-color: #00FFFF;"></button>
-            <button class="color-swatch" data-color="#1E90FF" style="background-color: #1E90FF;"></button>
-            <button class="color-swatch" data-color="#0000FF" style="background-color: #0000FF;"></button>
-            <button class="color-swatch" data-color="#000080" style="background-color: #000080;"></button>
-            <button class="color-swatch" data-color="#4B0082" style="background-color: #4B0082;"></button>
+            <button class="color-swatch" data-color="#00FFFF" style="background-color: #00FFFF;" aria-label="Preset color Cyan"></button>
+            <button class="color-swatch" data-color="#1E90FF" style="background-color: #1E90FF;" aria-label="Preset color Dodger Blue"></button>
+            <button class="color-swatch" data-color="#0000FF" style="background-color: #0000FF;" aria-label="Preset color Blue"></button>
+            <button class="color-swatch" data-color="#000080" style="background-color: #000080;" aria-label="Preset color Navy"></button>
+            <button class="color-swatch" data-color="#4B0082" style="background-color: #4B0082;" aria-label="Preset color Indigo"></button>
 
             <!-- Row 4 - Purples & Pinks -->
-            <button class="color-swatch" data-color="#800080" style="background-color: #800080;"></button>
-            <button class="color-swatch" data-color="#FF00FF" style="background-color: #FF00FF;"></button>
-            <button class="color-swatch" data-color="#C71585" style="background-color: #C71585;"></button>
-            <button class="color-swatch" data-color="#FF1493" style="background-color: #FF1493;"></button>
-            <button class="color-swatch" data-color="#FF69B4" style="background-color: #FF69B4;"></button>
+            <button class="color-swatch" data-color="#800080" style="background-color: #800080;" aria-label="Preset color Purple"></button>
+            <button class="color-swatch" data-color="#FF00FF" style="background-color: #FF00FF;" aria-label="Preset color Magenta"></button>
+            <button class="color-swatch" data-color="#C71585" style="background-color: #C71585;" aria-label="Preset color Medium Violet Red"></button>
+            <button class="color-swatch" data-color="#FF1493" style="background-color: #FF1493;" aria-label="Preset color Deep Pink"></button>
+            <button class="color-swatch" data-color="#FF69B4" style="background-color: #FF69B4;" aria-label="Preset color Hot Pink"></button>
 
             <!-- Row 5 - Grayscale -->
-            <button class="color-swatch" data-color="#FFFFFF" style="background-color: #FFFFFF;"></button>
-            <button class="color-swatch" data-color="#C0C0C0" style="background-color: #C0C0C0;"></button>
-            <button class="color-swatch" data-color="#808080" style="background-color: #808080;"></button>
-            <button class="color-swatch" data-color="#404040" style="background-color: #404040;"></button>
-            <button class="color-swatch" data-color="#000000" style="background-color: #000000;"></button>
+            <button class="color-swatch" data-color="#FFFFFF" style="background-color: #FFFFFF;" aria-label="Preset color White"></button>
+            <button class="color-swatch" data-color="#C0C0C0" style="background-color: #C0C0C0;" aria-label="Preset color Silver"></button>
+            <button class="color-swatch" data-color="#808080" style="background-color: #808080;" aria-label="Preset color Gray"></button>
+            <button class="color-swatch" data-color="#404040" style="background-color: #404040;" aria-label="Preset color Dark Gray"></button>
+            <button class="color-swatch" data-color="#000000" style="background-color: #000000;" aria-label="Preset color Black"></button>
           </div>
         </div>
 
@@ -140,6 +147,32 @@
       <div class="preview-box">
         <span id="preview-text">computerK</span>
       </div>
+
+      <!-- Color position controls -->
+      <div class="color-position-control" id="color-position-control">
+        <div class="position-description">Set color change positions:</div>
+        <div class="position-slider-container">
+          <div class="username-display" id="username-display">computerK</div>
+          <div class="cursor-container" id="cursor-container">
+            <!-- Cursors will be added dynamically -->
+            <div class="color-cursor cursor-1" data-index="1" role="slider" aria-label="Color 2 position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            <div class="color-cursor cursor-2" data-index="2" role="slider" aria-label="Color 3 position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+          </div>
+        </div>
+        <div class="position-controls">
+          <label class="switch">
+            <input type="checkbox" id="enable-color-2">
+            <span class="slider round"></span>
+          </label>
+          <span>Enable Color 2</span>
+
+          <label class="switch ml-20">
+            <input type="checkbox" id="enable-color-3">
+            <span class="slider round"></span>
+          </label>
+          <span>Enable Color 3</span>
+        </div>
+      </div>
     </div>
 
     <div class="result-section">
@@ -155,8 +188,9 @@
       <p>This tool converts a standard hex color to the VRFS 3-digit color format.</p>
       <ol>
         <li>Enter your username</li>
-        <li>Select a color using the preset colors or RGB sliders</li>
-        <li>The tool automatically converts your color to the VRFS format</li>
+        <li>Select colors using the preset colors or RGB sliders</li>
+        <li>For multi-color names, enable additional colors and position them with the cursor controls</li>
+        <li>The tool automatically converts your colors to the VRFS format</li>
         <li>Copy the result and use it in VRFS!</li>
       </ol>
     </div>
