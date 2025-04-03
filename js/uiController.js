@@ -155,13 +155,21 @@ function setupEventListeners() {
     const isEnabled = state.additionalColors[cursorIndex - 1].enabled;
     cursor.setAttribute('tabindex', isEnabled ? '0' : '-1');
     
+    // Mouse events for desktop
     cursor.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      containerRect = elements.cursorContainer.getBoundingClientRect();
-      document.addEventListener("mousemove", handleDrag);
-      document.addEventListener("mouseup", stopDrag);
+      startDrag(e);
+      document.addEventListener("mousemove", handleMouseDrag);
+      document.addEventListener("mouseup", stopMouseDrag);
       e.preventDefault();
     });
+    
+    // Touch events for mobile
+    cursor.addEventListener("touchstart", (e) => {
+      startDrag(e.touches[0]);
+      document.addEventListener("touchmove", handleTouchDrag, { passive: false });
+      document.addEventListener("touchend", stopTouchDrag);
+      e.preventDefault();
+    }, { passive: false });
     
     // Add keyboard navigation
     cursor.addEventListener("keydown", (e) => {
@@ -194,14 +202,30 @@ function setupEventListeners() {
       }
     });
     
-    function handleDrag(e) {
+    function startDrag(e) {
+      isDragging = true;
+      containerRect = elements.cursorContainer.getBoundingClientRect();
+      // Add dragging class for visual feedback
+      cursor.classList.add('dragging');
+    }
+    
+    function handleMouseDrag(e) {
+      handleDrag(e.clientX);
+    }
+    
+    function handleTouchDrag(e) {
+      handleDrag(e.touches[0].clientX);
+      e.preventDefault(); // Prevent scrolling while dragging
+    }
+    
+    function handleDrag(clientX) {
       if (!isDragging) return;
       
       const cursorIndex = parseInt(cursor.getAttribute("data-index"));
       const containerWidth = containerRect.width;
       
       // Calculate position as percentage of container width
-      let posX = e.clientX - containerRect.left;
+      let posX = clientX - containerRect.left;
       posX = Math.max(0, Math.min(posX, containerWidth));
       
       // Convert to percentage of username length
@@ -227,10 +251,20 @@ function setupEventListeners() {
       updatePreview(getState());
     }
     
-    function stopDrag() {
+    function stopMouseDrag() {
       isDragging = false;
-      document.removeEventListener("mousemove", handleDrag);
-      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("mousemove", handleMouseDrag);
+      document.removeEventListener("mouseup", stopMouseDrag);
+      // Remove dragging class when done
+      cursor.classList.remove('dragging');
+    }
+    
+    function stopTouchDrag() {
+      isDragging = false;
+      document.removeEventListener("touchmove", handleTouchDrag);
+      document.removeEventListener("touchend", stopTouchDrag);
+      // Remove dragging class when done
+      cursor.classList.remove('dragging');
     }
   });
   
