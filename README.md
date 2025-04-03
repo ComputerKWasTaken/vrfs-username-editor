@@ -16,7 +16,8 @@ and text styling effects.
   3-digit color format
 - **Copy to Clipboard**: One-click copying of the formatted username for use in
   VRFS
-- **Responsive Design**: Works on desktop and VR browsers
+- **Responsive Design**: Works on desktop, mobile, and VR browsers
+- **Touch Support**: Optimized for iOS and other mobile devices with touch-friendly controls
 - **Accessibility**: Enhanced with ARIA attributes and keyboard navigation for better usability
 
 ## 🚀 Usage
@@ -50,12 +51,20 @@ format:
 - White color (999) doesn't require a color tag in VRFS
 - Stylization tags won't work without a color code
 
-## Accessibility
+## Accessibility & Mobile Support
 
-The application includes several accessibility features:
+The application includes several accessibility and mobile-friendly features:
+
+### Accessibility
 - **Keyboard Navigation**: All interactive elements, including color swatches, sliders, toggles, and color position cursors, are navigable and operable using a keyboard.
 - **Focus Indicators**: Clear focus states are provided for all interactive elements.
 - **ARIA Attributes**: Appropriate ARIA roles, states, and properties are used to enhance compatibility with screen readers and other assistive technologies.
+
+### Mobile Support
+- **Touch-Optimized Controls**: All interactive elements are designed to work with touch input, especially the color position cursors.
+- **iOS Compatibility**: The draggable color position sliders work properly on iOS devices, which require special handling for touch events.
+- **Responsive Layout**: The interface adapts to different screen sizes with larger touch targets on mobile devices.
+- **Visual Feedback**: Enhanced visual cues during touch interactions to improve the user experience.
 
 ## 🧰 Technologies Used
 
