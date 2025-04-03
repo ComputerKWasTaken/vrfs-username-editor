@@ -599,6 +599,8 @@ button#copy-button:focus {
   display: none;
   /* Add tabindex support for keyboard accessibility */
   outline: none;
+  /* Add touch-action to improve responsiveness on mobile */
+  touch-action: none;
 }
 
 .color-cursor::after {
@@ -611,6 +613,26 @@ button#copy-button:focus {
   border-radius: 50%;
   background-color: inherit;
   z-index: 5;
+}
+
+/* Larger touch targets for mobile devices */
+@media (max-width: 768px) {
+  .color-cursor::after {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -13px;
+  }
+  
+  .color-cursor.active {
+    opacity: 0.8; /* More visible on mobile */
+  }
+  
+  .color-cursor:active::after,
+  .color-cursor.dragging::after {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
 }
 
 .color-cursor.cursor-1 {
@@ -738,6 +760,37 @@ input:checked + .slider:before {
 
   .color-grid-container {
     grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Improve position slider for touch */
+  .position-slider-container {
+    height: 60px; /* Taller for easier touch targeting */
+  }
+  
+  .username-display {
+    font-size: 20px; /* Slightly smaller to fit */
+  }
+  
+  /* Mobile-friendly toggles */
+  .switch {
+    width: 50px;  /* Larger toggle switch */
+    height: 26px;
+  }
+  
+  .slider:before {
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+  .position-controls {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
