@@ -75,8 +75,10 @@ The application includes several accessibility and mobile-friendly features:
 
 ## 💻 Installation
 
-No installation required! This is a hosted web application on Netlify. If you're
-interested in making changes, please send some commits and pull requests over.
+No installation required! This is a hosted web application on Netlify.
+**_https://vrfs-username-editor.netlify.app/_**
+
+If you're interested in making changes, please send some commits and pull requests over.
 
 ## 🏗️ Project Structure
 
